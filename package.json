@@ -1,0 +1,21 @@
+{
+  "name": "Sample-Node",
+  "version": "0.0.1",
+  "description": "A node Starter Application",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "mocha ./tests --recursive"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
+}
