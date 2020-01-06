@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Cloning Repository') {
       steps {
-        git 'https://github.com/sanjeevkumarrao/node-hello-world'
+        git 'https://github.com/profemzy/sample-node'
       }
     }
     stage('Build') {
