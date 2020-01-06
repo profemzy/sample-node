@@ -12,24 +12,24 @@ pipeline {
         git 'https://github.com/profemzy/sample-node'
       }
     }
-    stage('Build') {
+    stage('Build App') {
        steps {
          sh 'npm install'
        }
     }
-    stage('Test') {
+    stage('Test App') {
       steps {
         sh 'npm test'
       }
     }
-    stage('Building image') {
+    stage('Building Docker Image') {
            steps{
              script {
                dockerImage = docker.build dockerRegistry + ":$BUILD_NUMBER"
              }
            }
      }
-     stage('Upload Image') {
+     stage('Upload Docker Image') {
            steps{
              script {
                docker.withRegistry( '', dockerRegistryCredential ) {
@@ -39,7 +39,7 @@ pipeline {
            }
       }
 
-     stage('Remove Unused docker image') {
+     stage('Remove Unused Docker Image') {
              steps{
                sh "docker rmi $dockerRegistry:$BUILD_NUMBER"
             }
