@@ -48,20 +48,6 @@ pipeline {
            }
       }
 
-     stage('Deploy to Production'){
-        when {
-            branch 'master'
-        }
-        steps {
-            milestone(1)
-            kubernetesDeploy(
-                kubeconfigId: 'kubeconfig',
-                configs: 'app-deployment.yml',
-                enableConfigSubstitution: true
-            )
-        }
-     }
-
      stage('Remove Unused Docker Image') {
              steps{
                sh "docker rmi $DOCKER_IMAGE_NAME"
