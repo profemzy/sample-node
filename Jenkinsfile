@@ -47,5 +47,11 @@ pipeline {
              }
            }
       }
+
+     stage('Remove Unused Docker Image') {
+             steps{
+               sh "docker rmi $DOCKER_IMAGE_NAME"
+            }
+     }
   }
 }
