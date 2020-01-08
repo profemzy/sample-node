@@ -28,7 +28,7 @@ pipeline {
           stage('Push Docker Image') {
                     steps{
                       script {
-                          docker.withRegistry("https://686233958969.dkr.ecr.eu-west-1.amazonaws.com", "eu-west-1:f3e9baf9-bf55-4dae-95a1-9d7cf6a3dbf5") {
+                          docker.withRegistry("https://686233958969.dkr.ecr.eu-west-1.amazonaws.com", "ecr:eu-west-1:f3e9baf9-bf55-4dae-95a1-9d7cf6a3dbf5") {
                                   app.push("${env.BUILD_NUMBER}")
                                   app.push("latest")
                          }
