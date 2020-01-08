@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        DOCKER_IMAGE_NAME = "profemzy/docker-nodejs"
+      }
     agent any
     stages {
         stage('Build') {
